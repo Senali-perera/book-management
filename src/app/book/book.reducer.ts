@@ -12,6 +12,5 @@ export const BookReducer = createReducer(
     console.error(error);
     return state;
   }),
-
   on(RemoveBook, (state, {bookId}) => state.filter(book => book.id !== bookId))
 );
