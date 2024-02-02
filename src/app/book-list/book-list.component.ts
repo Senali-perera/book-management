@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { Store, select } from "@ngrx/store";
-import { Observable } from "rxjs";
+import { Observable} from "rxjs";
 import { Book } from "../models/book";
 import { AddBook, RemoveBook } from "../book/book.actions";
 import {AppState} from "../app.state";
+import {AsyncPipe, NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-book-list',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe, NgForOf],
   templateUrl: './book-list.component.html',
   styleUrl: './book-list.component.css'
 })
@@ -27,4 +28,5 @@ export class BookListComponent {
   removeBook(bookId: string){
     this.store.dispatch(RemoveBook({bookId}));
   }
+
 }
